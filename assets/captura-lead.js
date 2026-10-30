@@ -6,7 +6,7 @@
    honeypot name="site" e button[type=submit]. */
 var CAPTURA = {
   WEBHOOK: "https://n8n.agenciaultima.com.br/webhook/f3dc5233-2170-40e6-8408-2eb4eed642d9",
-  PIXEL: "",                 // PENDENTE: ID do pixel Meta desta conta; vazio desliga o rastreio
+  PIXEL: "789457605589881",  // Pixel Meta (navegador). O token da CAPI NUNCA fica aqui: fica no n8n (servidor).
   EVENTO: "BlackFridayVitalicia",
   DESTINO: "obrigado"        // vai para obrigado.html (que leva ao grupo de WhatsApp)
 };

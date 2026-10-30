@@ -41,6 +41,8 @@ section{padding:72px 0;position:relative}
 .marquee__track span{font-family:var(--f);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.95rem;padding:11px 0;display:inline-block}
 .marquee__track i{font-style:normal;font-weight:900;margin:0 20px;opacity:.65}
 .marquee:hover .marquee__track{animation-play-state:paused}
+.marquee--meio{border-top:1px solid rgba(5,10,4,.2)}
+.marquee--meio .marquee__track{animation-direction:reverse}
 @keyframes corre{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* botao neon */
@@ -247,6 +249,13 @@ footer .cop{color:#55614f;font-size:.82rem}
     </div>
   </div>
 </section>
+
+<!-- MARQUEE (meio) -->
+<div class="marquee marquee--meio" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Black Friday</span><i>&#8734;</i><span>Vitalícia</span><i>&#8734;</i><span>Pediatria Chinesa para sempre</span><i>&#8734;</i><span>Acesso Vitalício</span><i>&#8734;</i><span>Black Friday</span><i>&#8734;</i><span>Vitalícia</span><i>&#8734;</i><span>Pediatria Chinesa para sempre</span><i>&#8734;</i><span>Acesso Vitalício</span><i>&#8734;</i>
+  </div>
+</div>
 
 <!-- COMO FUNCIONA -->
 <section class="passos">

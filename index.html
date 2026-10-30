@@ -35,6 +35,14 @@ section{padding:72px 0;position:relative}
   font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;padding:7px 16px;border-radius:999px}
 .lead{color:var(--cinza);font-size:1.05rem;max-width:56ch;margin:14px auto 0}
 
+/* marquee (faixa em movimento) */
+.marquee{background:var(--neon);color:var(--preto);overflow:hidden;white-space:nowrap;position:relative;z-index:30;border-bottom:1px solid rgba(5,10,4,.2)}
+.marquee__track{display:inline-flex;align-items:center;will-change:transform;animation:corre 26s linear infinite}
+.marquee__track span{font-family:var(--f);font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:.95rem;padding:11px 0;display:inline-block}
+.marquee__track i{font-style:normal;font-weight:900;margin:0 20px;opacity:.65}
+.marquee:hover .marquee__track{animation-play-state:paused}
+@keyframes corre{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
 /* botao neon */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;border:0;
   background:var(--neon);color:var(--preto);font-family:var(--f);font-weight:800;font-size:1.02rem;letter-spacing:.02em;
@@ -135,7 +143,7 @@ footer .cop{color:#55614f;font-size:.82rem}
 @media(max-width:900px){
   section{padding:54px 0}
   /* mobile: foto do expert no topo da primeira dobra, dissolvendo no fundo; texto e botao logo abaixo */
-  .hero{position:relative;min-height:100vh;padding:0;display:block;overflow:hidden}
+  .hero{position:relative;min-height:calc(100vh - 44px);padding:0;display:block;overflow:hidden}
   .hero::before{display:none}
   .hero .wrap{position:static}
   .hero .grid{display:block;position:relative;z-index:2;padding:236px 0 22px}
@@ -168,6 +176,13 @@ footer .cop{color:#55614f;font-size:.82rem}
 </style>
 </head>
 <body>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Black Friday</span><i>&#8734;</i><span>Vitalícia</span><i>&#8734;</i><span>Pediatria Chinesa para sempre</span><i>&#8734;</i><span>Acesso Vitalício</span><i>&#8734;</i><span>Black Friday</span><i>&#8734;</i><span>Vitalícia</span><i>&#8734;</i><span>Pediatria Chinesa para sempre</span><i>&#8734;</i><span>Acesso Vitalício</span><i>&#8734;</i>
+  </div>
+</div>
 
 <!-- HERO -->
 <header class="hero">

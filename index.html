@@ -139,8 +139,13 @@ footer .cop{color:#55614f;font-size:.82rem}
 .campo label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;color:#cdd8c9}
 .in{width:100%;font:inherit;font-size:1rem;padding:13px 14px;border:1px solid var(--borda);border-radius:12px;background:#0a140a;color:var(--branco)}
 .in:focus{outline:none;border-color:var(--neon)}
-.mt{font-size:.78rem;color:#6d7a69;margin-top:12px;text-align:center}
+.mt{font-size:.78rem;color:#6d7a69;margin-top:10px;text-align:center}
 .hp{position:absolute;left:-9999px;opacity:0}
+/* formularios na pagina */
+.hero-form{display:flex;flex-direction:column;gap:10px;max-width:460px;margin-top:22px}
+.hero-form .in{background:rgba(10,20,10,.82)}
+.form-final{display:flex;flex-direction:column;gap:10px;max-width:460px;margin:26px auto 0;text-align:left}
+.hero-form .btn.block,.form-final .btn.block{max-width:none;margin-top:4px}
 
 @media(max-width:900px){
   section{padding:54px 0}
@@ -148,14 +153,17 @@ footer .cop{color:#55614f;font-size:.82rem}
   .hero{position:relative;min-height:calc(100vh - 44px);padding:0;display:block;overflow:hidden}
   .hero::before{display:none}
   .hero .wrap{position:static}
-  .hero .grid{display:block;position:relative;z-index:2;padding:236px 0 22px}
+  .hero .grid{display:block;position:relative;z-index:2;padding:178px 0 26px}
   .hero > .wrap > .grid > div:first-child{display:flex;flex-direction:column;align-items:flex-start}
   .hero .eti{background:rgba(5,10,4,.72);backdrop-filter:blur(4px)}
-  .hero .btn{font-size:.9rem;letter-spacing:0;padding:16px 20px;white-space:nowrap;align-self:stretch}
-  .hero-foto{position:absolute;top:0;left:0;right:0;height:248px;z-index:0;margin:0;display:block}
+  .hero .btn{font-size:.86rem;letter-spacing:0;padding:14px 16px;white-space:normal;line-height:1.18;align-self:stretch}
+  .hero-form{gap:8px;margin-top:16px}
+  .hero-form .in{padding:12px 13px}
+  .hero .data{margin:10px 0 8px}
+  .hero-foto{position:absolute;top:0;left:0;right:0;height:190px;z-index:0;margin:0;display:block}
   .hero-foto::after{content:"";position:absolute;inset:0;z-index:1;
     background:linear-gradient(180deg,rgba(5,10,4,0) 40%,rgba(5,10,4,.55) 72%,rgba(5,10,4,.92) 90%,var(--preto) 100%)}
-  .hero-foto img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center 14%;filter:none}
+  .hero-foto img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center 6%;filter:none}
   .hero .infinito{display:none}
   .hero h1{font-size:1.7rem;margin-top:6px}
   .hero .sub{font-size:.92rem;margin-top:8px;max-width:none}
@@ -194,7 +202,7 @@ footer .cop{color:#55614f;font-size:.82rem}
         <div class="infinito">&#8734;</div>
         <span class="eti">Black Friday · Vitalícia</span>
         <h1>Black Friday <span class="verde">Vitalícia</span> da Pediatria Chinesa</h1>
-        <p class="sub">Você nunca mais vai precisar comprar um curso de Pediatria Chinesa pelo resto da vida. Você terá ACESSO VITALÍCIO a todos os meus cursos online atuais por um preço de BLACK FRIDAY!</p>
+        <p class="sub">Uma oferta vitalícia, com acesso a <b>todos os cursos de Pediatria Chinesa</b>, para sempre. Inscreva-se agora e receba a condição ao vivo.</p>
         <div class="contador" id="contador" aria-label="Contagem regressiva">
           <div class="bloco"><b data-d>00</b><span>dias</span></div>
           <div class="bloco"><b data-h>00</b><span>horas</span></div>
@@ -202,7 +210,14 @@ footer .cop{color:#55614f;font-size:.82rem}
           <div class="bloco"><b data-s>00</b><span>seg</span></div>
         </div>
         <p class="data"><span class="cal">&#128197;</span> <b>12 de novembro de 2026</b> · às <b>20h</b> · ao vivo</p>
-        <a href="#inscricao" class="btn js-abrir">Quero participar da Black</a>
+        <form class="formulario hero-form" id="inscricao" aria-label="Inscrição na Black Friday">
+          <input class="in" name="nome" type="text" autocomplete="name" placeholder="Seu nome">
+          <input class="in" name="email" type="email" autocomplete="email" placeholder="Seu melhor e-mail">
+          <input class="in" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp com DDD">
+          <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn block" type="submit">Quero entrar no grupo para receber a oferta</button>
+          <p class="mt">Não enviamos spam. Seu contato serve só para avisar das lives.</p>
+        </form>
       </div>
       <div class="hero-foto">
         <img src="img/talitha-cutout.png" alt="Talitha Granzotto sorrindo, com fundo verde neon" width="1100" height="1650">
@@ -245,7 +260,7 @@ footer .cop{color:#55614f;font-size:.82rem}
     <div class="caixa">
       <div class="ponto">? ? ? ?</div>
       <p>A condição será revelada ao vivo no dia 12 de novembro, às 20h. Só quem estiver no grupo de WhatsApp recebe o link para participar.</p>
-      <a href="#inscricao" class="btn js-abrir">Garantir minha vaga</a>
+      <a href="#inscricao" class="btn">Garantir minha vaga</a>
     </div>
   </div>
 </section>
@@ -267,7 +282,7 @@ footer .cop{color:#55614f;font-size:.82rem}
       <div class="passo"><div class="n">2</div><h3>Entre no grupo de WhatsApp</h3><p>É por lá que enviamos o link do evento e os avisos importantes.</p></div>
       <div class="passo"><div class="n">3</div><h3>Esteja ao vivo</h3><p>Dia 12 de novembro, às 20h, para conhecer a oferta da Black Friday Vitalícia.</p></div>
     </div>
-    <div style="margin-top:36px"><a href="#inscricao" class="btn js-abrir">Quero participar da Black</a></div>
+    <div style="margin-top:36px"><a href="#inscricao" class="btn">Quero participar da Black</a></div>
   </div>
 </section>
 
@@ -291,12 +306,19 @@ footer .cop{color:#55614f;font-size:.82rem}
 </section>
 
 <!-- CTA FINAL -->
-<section class="final" id="inscricao">
+<section class="final">
   <div class="wrap">
     <p class="faixa">&#8734; 12 de novembro · às 20h · ao vivo</p>
     <h2>Black Friday Vitalícia da Pediatria Chinesa</h2>
     <p>Acesso vitalício a todos os cursos. Uma condição única, revelada ao vivo.</p>
-    <a href="#" class="btn js-abrir">Garantir minha vaga</a>
+    <form class="formulario form-final" aria-label="Inscrição na Black Friday">
+      <input class="in" name="nome" type="text" autocomplete="name" placeholder="Seu nome">
+      <input class="in" name="email" type="email" autocomplete="email" placeholder="Seu melhor e-mail">
+      <input class="in" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="WhatsApp com DDD">
+      <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn block" type="submit">Quero entrar no grupo para receber a oferta</button>
+      <p class="mt">Não enviamos spam. Seu contato serve só para avisar das lives.</p>
+    </form>
   </div>
 </section>
 
@@ -311,29 +333,6 @@ footer .cop{color:#55614f;font-size:.82rem}
     <p class="cop">© 2026 Talitha Granzotto · Todos os direitos reservados.</p>
   </div>
 </footer>
-
-<!-- MODAL DE INSCRICAO -->
-<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Inscrição na Black Friday">
-  <div class="cx">
-    <button class="fechar js-fechar" aria-label="Fechar">&times;</button>
-    <h3>Participe da Black Friday</h3>
-    <p class="fs">Deixe seus dados para entrar na lista e receber o link no grupo de WhatsApp.</p>
-    <form class="formulario">
-      <div class="campo"><label>Nome</label><input class="in" name="nome" type="text" autocomplete="name" placeholder="Seu nome"></div>
-      <div class="campo"><label>E-mail</label><input class="in" name="email" type="email" autocomplete="email" placeholder="seu@email.com"></div>
-      <div class="campo"><label>WhatsApp</label><input class="in" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000"></div>
-      <input type="hidden" name="utm_source">
-      <input type="hidden" name="utm_medium">
-      <input type="hidden" name="utm_content">
-      <input type="hidden" name="utm_term">
-      <input type="hidden" name="utm_campaign">
-      <input type="hidden" name="utm_campaign_id">
-      <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn block" type="submit">Quero participar da Black</button>
-      <p class="mt">Não enviamos spam. Seu contato serve só para avisar das lives.</p>
-    </form>
-  </div>
-</div>
 
 <script>
 /* CONTADOR regressivo para 12/11/2026 20:00 (horario de Brasilia, UTC-3) */
@@ -350,15 +349,15 @@ footer .cop{color:#55614f;font-size:.82rem}
   tick(); setInterval(tick,1000);
 })();
 
-/* MODAL abre/fecha */
+/* rolagem suave ate o formulario ao clicar nos botoes de ancora */
 (function(){
-  var modal=document.getElementById('modal');
-  function abre(ev){ if(ev)ev.preventDefault(); modal.classList.add('abre'); var i=modal.querySelector('input[name=nome]'); if(i)setTimeout(function(){i.focus();},60); }
-  function fecha(){ modal.classList.remove('abre'); }
-  document.querySelectorAll('.js-abrir').forEach(function(b){ b.addEventListener('click',abre); });
-  document.querySelectorAll('.js-fechar').forEach(function(b){ b.addEventListener('click',fecha); });
-  modal.addEventListener('click',function(e){ if(e.target===modal) fecha(); });
-  document.addEventListener('keydown',function(e){ if(e.key==='Escape') fecha(); });
+  document.querySelectorAll('a[href="#inscricao"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var alvo=document.getElementById('inscricao');
+      if(alvo){ e.preventDefault(); alvo.scrollIntoView({behavior:'smooth',block:'center'});
+        var i=alvo.querySelector('input[name=nome]'); if(i)setTimeout(function(){i.focus({preventScroll:true});},500); }
+    });
+  });
 })();
 </script>
 <script src="assets/captura-lead.js?v=3"></script>

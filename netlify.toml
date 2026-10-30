@@ -1,0 +1,19 @@
+[build]
+  publish = "."
+
+# Rotas sem .html (ex.: /obrigado)
+[[redirects]]
+  from = "/obrigado"
+  to = "/obrigado.html"
+  status = 200
+
+# Cache longo para imagens e assets estáticos
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

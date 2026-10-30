@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Inscrição confirmada · Black Friday Vitalícia da Pediatria Chinesa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap">
+<style>
+*{box-sizing:border-box}
+:root{--preto:#050A04;--neon:#49FF14;--cinza:#A7B3A2;--borda:rgba(73,255,20,.2)}
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;
+  background:var(--preto);color:#fff;font-family:"Outfit",system-ui,sans-serif;
+  background-image:radial-gradient(60% 50% at 50% 0%,rgba(73,255,20,.14),transparent 70%)}
+.cx{max-width:460px}
+.check{width:84px;height:84px;border-radius:50%;margin:0 auto 22px;background:rgba(73,255,20,.1);border:1px solid var(--borda);
+  display:flex;align-items:center;justify-content:center;font-size:2.4rem;color:var(--neon);text-shadow:0 0 16px rgba(73,255,20,.6)}
+h1{font-size:1.8rem;font-weight:900;margin:0 0 10px}
+h1 span{color:var(--neon)}
+p{color:var(--cinza);line-height:1.6;margin:0 0 24px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--neon);color:var(--preto);font-weight:800;text-transform:uppercase;
+  text-decoration:none;padding:17px 32px;border-radius:999px;font-size:1rem;box-shadow:0 10px 30px rgba(73,255,20,.3)}
+.redir{margin-top:18px;font-size:.84rem;color:#6d7a69}
+</style>
+</head>
+<body>
+  <div class="cx">
+    <div class="check">&#10003;</div>
+    <h1>Inscrição <span>confirmada!</span></h1>
+    <p>Falta um passo: entre no grupo de WhatsApp para receber o link do evento e os avisos da Black Friday Vitalícia. É por lá que tudo acontece no dia 12 de novembro, às 20h.</p>
+    <a class="btn" id="grupo" href="LINK_DO_GRUPO_WHATSAPP">Entrar no grupo de WhatsApp</a>
+    <p class="redir">Você será direcionado automaticamente em alguns segundos.</p>
+  </div>
+<script>
+/* PENDENTE: troque LINK_DO_GRUPO_WHATSAPP pelo link real do grupo (SendFlow/WhatsApp). */
+(function(){
+  var link=document.getElementById('grupo').getAttribute('href');
+  if(link && link.indexOf('http')===0){ setTimeout(function(){ location.href=link; },4000); }
+})();
+</script>
+</body>
+</html>

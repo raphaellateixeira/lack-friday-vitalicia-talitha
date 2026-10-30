@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no,date=no,address=no,email=no">
+<title>Black Friday Vitalícia da Pediatria Chinesa · 12 de novembro às 20h</title>
+<meta name="description" content="Acesso vitalício a todos os cursos de Pediatria Chinesa da Talitha Granzotto por um preço de Black Friday. Ao vivo, 12 de novembro às 20h.">
+<meta property="og:title" content="Black Friday Vitalícia da Pediatria Chinesa">
+<meta property="og:description" content="Acesso vitalício a todos os cursos por um preço de Black Friday. Ao vivo, 12 de novembro às 20h.">
+<meta property="og:image" content="img/talitha-cutout.png">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap">
+<style>
+*{box-sizing:border-box}
+:root{
+  --preto:#050A04; --verde-1:#0B1609; --verde-2:#0D1A0B; --card:rgba(13,26,11,.75);
+  --neon:#49FF14; --neon-soft:rgba(73,255,20,.08); --neon-line:rgba(73,255,20,.35);
+  --branco:#FFFFFF; --cinza:#A7B3A2; --borda:rgba(73,255,20,.18);
+  --f:"Outfit",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--preto);color:var(--branco);font-family:var(--f);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3{margin:0;line-height:1.1;font-weight:800;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px;position:relative}
+section{padding:72px 0;position:relative}
+.verde{color:var(--neon)}
+.center{text-align:center}
+.eti{display:inline-block;background:var(--neon-soft);border:1px solid var(--neon-line);color:var(--neon);
+  font-weight:700;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;padding:7px 16px;border-radius:999px}
+.lead{color:var(--cinza);font-size:1.05rem;max-width:56ch;margin:14px auto 0}
+
+/* botao neon */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;border:0;
+  background:var(--neon);color:var(--preto);font-family:var(--f);font-weight:800;font-size:1.02rem;letter-spacing:.02em;
+  padding:17px 34px;border-radius:999px;text-decoration:none;text-transform:uppercase;
+  box-shadow:0 0 0 rgba(73,255,20,.6);transition:transform .15s ease,box-shadow .3s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(73,255,20,.35)}
+.btn.block{display:flex;width:100%;max-width:440px}
+
+/* HERO */
+.hero{padding:34px 0 60px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(60% 55% at 78% 30%,rgba(73,255,20,.16),transparent 70%),
+             radial-gradient(50% 50% at 12% 8%,rgba(73,255,20,.08),transparent 70%)}
+.hero .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:1}
+.infinito{font-size:3.4rem;font-weight:900;color:var(--neon);line-height:1;text-shadow:0 0 18px rgba(73,255,20,.7);margin-bottom:14px}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.4rem);font-weight:900;margin:16px 0 0}
+.hero .sub{color:var(--cinza);font-size:1.08rem;margin:20px 0 0;max-width:52ch}
+/* contador */
+.contador{display:flex;gap:12px;margin:28px 0 0;flex-wrap:wrap}
+.bloco{background:var(--verde-1);border:1px solid var(--borda);border-radius:16px;padding:14px 10px;min-width:78px;text-align:center}
+.bloco b{display:block;font-size:2rem;font-weight:800;color:var(--neon);line-height:1;font-variant-numeric:tabular-nums}
+.bloco span{display:block;font-size:.66rem;letter-spacing:.18em;color:var(--cinza);text-transform:uppercase;margin-top:7px}
+.data{margin:22px 0 24px;font-size:1rem;color:#E6EFE3}
+.data b{color:var(--branco);font-weight:700}
+.data .cal{font-size:1.1rem;margin-right:6px;vertical-align:-2px}
+/* foto hero */
+.hero-foto{position:relative;display:flex;justify-content:center}
+.hero-foto::after{content:"";position:absolute;inset:6% 10% 0;z-index:-1;border-radius:24px;
+  background:radial-gradient(60% 60% at 50% 40%,rgba(73,255,20,.28),transparent 70%)}
+.hero-foto img{max-height:560px;width:auto;filter:drop-shadow(0 0 26px rgba(73,255,20,.35))}
+
+/* CURSOS */
+.cursos{background:var(--verde-1)}
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.item{position:relative;background:var(--card);border:1px solid var(--borda);border-radius:18px;padding:12px;overflow:hidden;transition:transform .2s ease,border-color .2s ease}
+.item:hover{transform:translateY(-4px);border-color:var(--neon-line)}
+.item img{border-radius:12px;width:100%}
+.item .cat{position:absolute;top:20px;left:20px;z-index:2;background:rgba(5,10,4,.72);border:1px solid var(--neon-line);
+  color:var(--neon);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 11px;border-radius:999px;backdrop-filter:blur(4px)}
+.ancora{margin:38px auto 0;max-width:620px;text-align:center;background:var(--neon-soft);border:1px solid var(--neon-line);border-radius:16px;padding:20px}
+.ancora small{display:block;color:var(--cinza);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.ancora b{font-size:1.5rem;color:var(--branco)}
+.ancora b s{color:var(--cinza)}
+.nota{margin-top:18px;color:var(--cinza);font-size:.92rem}
+.nota .verde{font-weight:700}
+
+/* CONDICAO */
+.cond{text-align:center}
+.cond .caixa{max-width:640px;margin:26px auto 0;background:var(--verde-2);border:1px dashed var(--neon-line);border-radius:22px;padding:40px 24px}
+.cond .ponto{font-size:clamp(3rem,10vw,5rem);font-weight:900;color:var(--neon);letter-spacing:.1em;text-shadow:0 0 22px rgba(73,255,20,.55);line-height:1}
+.cond p{color:var(--cinza);max-width:48ch;margin:16px auto 26px}
+
+/* PASSOS */
+.passos{background:var(--verde-1)}
+.trilha{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.passo{background:var(--card);border:1px solid var(--borda);border-radius:18px;padding:26px 22px;position:relative}
+.passo .n{width:44px;height:44px;border-radius:50%;background:var(--neon);color:var(--preto);font-weight:800;font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+.passo h3{font-size:1.18rem;margin-bottom:8px}
+.passo p{color:var(--cinza);font-size:.96rem}
+
+/* BIO */
+.bio .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.bio-foto{position:relative;display:flex;justify-content:center}
+.bio-foto::after{content:"";position:absolute;inset:4% 8% 0;z-index:-1;border-radius:24px;background:radial-gradient(60% 60% at 50% 40%,rgba(73,255,20,.22),transparent 70%)}
+.bio-foto img{max-height:480px;width:auto;filter:drop-shadow(0 0 22px rgba(73,255,20,.3))}
+.bio h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:6px}
+.bio .cargo{color:var(--neon);font-weight:700;letter-spacing:.04em;margin-bottom:18px}
+.bio p{color:var(--cinza);margin-bottom:14px}
+
+/* CTA FINAL */
+.final{text-align:center;background:radial-gradient(60% 80% at 50% 0%,rgba(73,255,20,.12),transparent 70%)}
+.final .faixa{color:var(--neon);font-weight:700;letter-spacing:.14em;font-size:.82rem;text-transform:uppercase;margin-bottom:14px}
+.final h2{font-size:clamp(1.8rem,4.4vw,2.8rem);max-width:18ch;margin:0 auto 14px}
+.final p{color:var(--cinza);max-width:46ch;margin:0 auto 28px}
+
+/* FOOTER */
+footer{background:var(--preto);border-top:1px solid var(--borda);padding:40px 0 48px;text-align:center}
+footer .links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+footer .links a{color:var(--cinza);text-decoration:none;font-size:.9rem}
+footer .links a:hover{color:var(--neon)}
+footer .disc{color:#6d7a69;font-size:.8rem;max-width:60ch;margin:0 auto 14px}
+footer .cop{color:#55614f;font-size:.82rem}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,2,.82);backdrop-filter:blur(4px)}
+.modal.abre{display:flex}
+.modal .cx{width:100%;max-width:420px;background:var(--verde-2);border:1px solid var(--neon-line);border-radius:20px;padding:28px 24px;position:relative}
+.modal h3{font-size:1.4rem;margin-bottom:4px}
+.modal .fs{color:var(--cinza);font-size:.92rem;margin-bottom:18px}
+.modal .fechar{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--cinza);font-size:1.6rem;cursor:pointer;line-height:1}
+.campo{margin-bottom:12px}
+.campo label{display:block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px;color:#cdd8c9}
+.in{width:100%;font:inherit;font-size:1rem;padding:13px 14px;border:1px solid var(--borda);border-radius:12px;background:#0a140a;color:var(--branco)}
+.in:focus{outline:none;border-color:var(--neon)}
+.mt{font-size:.78rem;color:#6d7a69;margin-top:12px;text-align:center}
+.hp{position:absolute;left:-9999px;opacity:0}
+
+@media(max-width:900px){
+  section{padding:54px 0}
+  /* mobile: foto do expert no topo da primeira dobra, dissolvendo no fundo; texto e botao logo abaixo */
+  .hero{position:relative;min-height:100vh;padding:0;display:block;overflow:hidden}
+  .hero::before{display:none}
+  .hero .wrap{position:static}
+  .hero .grid{display:block;position:relative;z-index:2;padding:236px 0 22px}
+  .hero > .wrap > .grid > div:first-child{display:flex;flex-direction:column;align-items:flex-start}
+  .hero .eti{background:rgba(5,10,4,.72);backdrop-filter:blur(4px)}
+  .hero .btn{font-size:.9rem;letter-spacing:0;padding:16px 20px;white-space:nowrap;align-self:stretch}
+  .hero-foto{position:absolute;top:0;left:0;right:0;height:248px;z-index:0;margin:0;display:block}
+  .hero-foto::after{content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(5,10,4,0) 40%,rgba(5,10,4,.55) 72%,rgba(5,10,4,.92) 90%,var(--preto) 100%)}
+  .hero-foto img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center 14%;filter:none}
+  .hero .infinito{display:none}
+  .hero h1{font-size:1.7rem;margin-top:6px}
+  .hero .sub{font-size:.92rem;margin-top:8px;max-width:none}
+  .hero .contador{margin-top:12px}
+  .hero .bloco{padding:10px 8px}
+  .hero .bloco b{font-size:1.5rem}
+  .hero .data{margin:10px 0 12px;font-size:.92rem}
+  .grade,.trilha{grid-template-columns:1fr 1fr;gap:14px}
+  .bio .grid{grid-template-columns:1fr;gap:20px}
+  .bio-foto{order:-1}
+  .bio-foto img{max-height:360px}
+}
+@media(max-width:520px){
+  .grade{grid-template-columns:1fr 1fr}
+  .bloco{min-width:0;flex:1}
+  .contador{gap:8px}
+  .bloco b{font-size:1.5rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="infinito">&#8734;</div>
+        <span class="eti">Black Friday · Vitalícia</span>
+        <h1>Black Friday <span class="verde">Vitalícia</span> da Pediatria Chinesa</h1>
+        <p class="sub">Você nunca mais vai precisar comprar um curso de Pediatria Chinesa pelo resto da vida. Você terá ACESSO VITALÍCIO a todos os meus cursos online atuais por um preço de BLACK FRIDAY!</p>
+        <div class="contador" id="contador" aria-label="Contagem regressiva">
+          <div class="bloco"><b data-d>00</b><span>dias</span></div>
+          <div class="bloco"><b data-h>00</b><span>horas</span></div>
+          <div class="bloco"><b data-m>00</b><span>min</span></div>
+          <div class="bloco"><b data-s>00</b><span>seg</span></div>
+        </div>
+        <p class="data"><span class="cal">&#128197;</span> <b>12 de novembro de 2026</b> · às <b>20h</b> · ao vivo</p>
+        <a href="#inscricao" class="btn js-abrir">Quero participar da Black</a>
+      </div>
+      <div class="hero-foto">
+        <img src="img/talitha-cutout.png" alt="Talitha Granzotto sorrindo, com fundo verde neon" width="1100" height="1650">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- CURSOS -->
+<section class="cursos">
+  <div class="wrap center">
+    <span class="eti">Prepare-se</span>
+    <h2 style="font-size:clamp(1.8rem,4.4vw,2.8rem);margin-top:16px">Tudo isso <span class="verde">vitalício</span> na Black Friday</h2>
+    <p class="lead">Estes são os cursos que fazem parte da oferta. A condição para garantir tudo será revelada ao vivo.</p>
+    <div class="grade">
+      <div class="item"><span class="cat">Curso</span><img src="img/curso-a-z.jpg" alt="Pediatria Chinesa de A-Z · Método Talitha Granzotto"></div>
+      <div class="item"><span class="cat">Curso</span><img src="img/curso-integrativa.jpg" alt="Pediatria Chinesa Integrativa · Método Talitha Granzotto"></div>
+      <div class="item"><span class="cat">Curso</span><img src="img/curso-ventosaterapia.jpg" alt="Ventosaterapia Pediátrica · Método Talitha Granzotto"></div>
+      <div class="item"><span class="cat">Curso</span><img src="img/curso-maos-que-cuidam.jpg" alt="Mãos que Cuidam · Curso de Tuiná Pediátrico"></div>
+      <div class="item"><span class="cat">Curso</span><img src="img/curso-segredos-avaliacao.jpg" alt="Os Segredos da Avaliação Pediátrica"></div>
+      <div class="item"><span class="cat">Curso</span><img src="img/curso-cristais-radionicos.jpg" alt="O Poder dos Cristais Radiônicos e Pastilhas de Silício"></div>
+      <div class="item"><span class="cat">Acervo</span><img src="img/curso-biblioteca-premium.jpg" alt="Biblioteca Clínica Premium"></div>
+      <div class="item"><span class="cat">E-book</span><img src="img/ebook-colica.jpg" alt="Guia Prático para Tratar Cólica de Bebês com Medicina Chinesa"></div>
+      <div class="item"><span class="cat">E-book</span><img src="img/ebook-sono.jpg" alt="Guia Prático para Tratar Sono de Bebês com Medicina Chinesa"></div>
+      <div class="item"><span class="cat">E-book</span><img src="img/ebook-ventosaterapia.jpg" alt="Guia Prático de Ventosaterapia Pediátrica"></div>
+      <div class="item"><span class="cat">Bônus</span><img src="img/bonus-exclusivos.jpg" alt="Mais 3 bônus exclusivos"></div>
+    </div>
+    <p class="nota">Acesso vitalício a todos os cursos · <span class="verde">Certificado reconhecido pelo MEC</span> na formação principal</p>
+    <div class="ancora">
+      <small>Valor de tabela de tudo hoje</small>
+      <b><s>+ R$ 11.000,00</s></b>
+    </div>
+  </div>
+</section>
+
+<!-- CONDICAO -->
+<section class="cond">
+  <div class="wrap">
+    <span class="eti">Condição de Black Friday</span>
+    <div class="caixa">
+      <div class="ponto">? ? ? ?</div>
+      <p>A condição será revelada ao vivo no dia 12 de novembro, às 20h. Só quem estiver no grupo de WhatsApp recebe o link para participar.</p>
+      <a href="#inscricao" class="btn js-abrir">Garantir minha vaga</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="passos">
+  <div class="wrap center">
+    <span class="eti">Como funciona</span>
+    <h2 style="font-size:clamp(1.8rem,4.4vw,2.8rem);margin-top:16px">É simples participar</h2>
+    <div class="trilha" style="text-align:left">
+      <div class="passo"><div class="n">1</div><h3>Clique no botão</h3><p>Toque em "Quero participar da Black" para entrar na lista do evento. É gratuito.</p></div>
+      <div class="passo"><div class="n">2</div><h3>Entre no grupo de WhatsApp</h3><p>É por lá que enviamos o link do evento e os avisos importantes.</p></div>
+      <div class="passo"><div class="n">3</div><h3>Esteja ao vivo</h3><p>Dia 12 de novembro, às 20h, para conhecer a oferta da Black Friday Vitalícia.</p></div>
+    </div>
+    <div style="margin-top:36px"><a href="#inscricao" class="btn js-abrir">Quero participar da Black</a></div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section class="bio">
+  <div class="wrap">
+    <div class="grid">
+      <div class="bio-foto">
+        <img src="img/talitha-cutout.png" alt="Talitha Granzotto" width="1100" height="1650">
+      </div>
+      <div>
+        <span class="eti">Quem vai estar com você</span>
+        <h2 style="margin-top:16px">Talitha Granzotto</h2>
+        <p class="cargo">Criadora do Método Talitha Granzotto</p>
+        <p>Criadora da formação Pediatria Chinesa de A-Z, um programa completo para quem quer atender bebês e crianças com segurança com a Medicina Chinesa.</p>
+        <p>Seu método ensina a avaliar de forma específica, montar o tratamento e tratar os bebês e as crianças de maneira simples e eficaz, com as mais diversas terapêuticas da Medicina Chinesa, incluindo acupuntura, tuiná, ventosaterapia e auriculoterapia.</p>
+        <p>Formada pela Xiamen University, na China. Mais de 18 anos de experiência clínica, milhares de alunos no Brasil e em outros países. Especialista em formar profissionais que desejam transformar suas carreiras através da Pediatria Chinesa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="final" id="inscricao">
+  <div class="wrap">
+    <p class="faixa">&#8734; 12 de novembro · às 20h · ao vivo</p>
+    <h2>Black Friday Vitalícia da Pediatria Chinesa</h2>
+    <p>Acesso vitalício a todos os cursos. Uma condição única, revelada ao vivo.</p>
+    <a href="#" class="btn js-abrir">Garantir minha vaga</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="links">
+      <a href="#" data-pol>Política de Privacidade</a>
+      <a href="#" data-termos>Termos de Uso</a>
+    </div>
+    <p class="disc">Este conteúdo tem caráter educacional e não garante resultados específicos. Os resultados dependem da aplicação individual de cada profissional.</p>
+    <p class="cop">© 2026 Talitha Granzotto · Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<!-- MODAL DE INSCRICAO -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Inscrição na Black Friday">
+  <div class="cx">
+    <button class="fechar js-fechar" aria-label="Fechar">&times;</button>
+    <h3>Participe da Black Friday</h3>
+    <p class="fs">Deixe seus dados para entrar na lista e receber o link no grupo de WhatsApp.</p>
+    <form class="formulario">
+      <div class="campo"><label>Nome</label><input class="in" name="nome" type="text" autocomplete="name" placeholder="Seu nome"></div>
+      <div class="campo"><label>E-mail</label><input class="in" name="email" type="email" autocomplete="email" placeholder="seu@email.com"></div>
+      <div class="campo"><label>WhatsApp</label><input class="in" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000"></div>
+      <input type="hidden" name="utm_source">
+      <input type="hidden" name="utm_medium">
+      <input type="hidden" name="utm_content">
+      <input type="hidden" name="utm_term">
+      <input type="hidden" name="utm_campaign">
+      <input type="hidden" name="utm_campaign_id">
+      <input class="hp" type="text" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn block" type="submit">Quero participar da Black</button>
+      <p class="mt">Não enviamos spam. Seu contato serve só para avisar das lives.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+/* CONTADOR regressivo para 12/11/2026 20:00 (horario de Brasilia, UTC-3) */
+(function(){
+  var alvo = new Date('2026-11-12T20:00:00-03:00').getTime();
+  var elD=document.querySelector('[data-d]'),elH=document.querySelector('[data-h]'),elM=document.querySelector('[data-m]'),elS=document.querySelector('[data-s]');
+  function z(n){return (n<10?'0':'')+n;}
+  function tick(){
+    var dif=alvo-Date.now();
+    if(dif<0){dif=0;}
+    var d=Math.floor(dif/86400000), h=Math.floor(dif%86400000/3600000), m=Math.floor(dif%3600000/60000), s=Math.floor(dif%60000/1000);
+    elD.textContent=z(d);elH.textContent=z(h);elM.textContent=z(m);elS.textContent=z(s);
+  }
+  tick(); setInterval(tick,1000);
+})();
+
+/* MODAL abre/fecha */
+(function(){
+  var modal=document.getElementById('modal');
+  function abre(ev){ if(ev)ev.preventDefault(); modal.classList.add('abre'); var i=modal.querySelector('input[name=nome]'); if(i)setTimeout(function(){i.focus();},60); }
+  function fecha(){ modal.classList.remove('abre'); }
+  document.querySelectorAll('.js-abrir').forEach(function(b){ b.addEventListener('click',abre); });
+  document.querySelectorAll('.js-fechar').forEach(function(b){ b.addEventListener('click',fecha); });
+  modal.addEventListener('click',function(e){ if(e.target===modal) fecha(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') fecha(); });
+})();
+</script>
+<script src="assets/captura-lead.js?v=2"></script>
+</body>
+</html>

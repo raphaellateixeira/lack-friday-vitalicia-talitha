@@ -66,14 +66,18 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
   form.setAttribute('novalidate', '');
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
-    if (form.site && form.site.value) return; // honeypot
-    var nome = form.nome.value.trim(), email = form.email.value.trim();
+    var frm = ev.currentTarget || this || form;
+    var tel = frm.querySelector('[name="whatsapp"], [name="telefone"]');
+    var hp = frm.querySelector('[name="site"]');
+    if (hp && hp.value) return; // honeypot
+    var nome = frm.querySelector('[name="nome"]').value.trim();
+    var email = frm.querySelector('[name="email"]').value.trim();
     var intl = tel.value.trim().charAt(0) === '+';
     var fone = tel.value.replace(/\D/g, '');
     var ok = nome.length >= 2 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) && (intl ? fone.length >= 8 : fone.length >= 10);
     if (!ok) { alert('Preencha nome, e-mail e WhatsApp com DDD.\nFora do Brasil? Comece com + e o código do país.'); return; }
     if (intl) fone = '+' + fone;
-    var botao = form.querySelector('button[type=submit]');
+    var botao = frm.querySelector('button[type=submit]');
     botao.disabled = true; botao.textContent = 'Enviando...';
 
     var eventId = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
@@ -81,9 +85,10 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
     /* src = juncao das 6 UTMs (igual ao padrao da outra pagina), ou o src da URL se existir */
     var src = UTMS.src || UTM_KEYS.map(function (k) { return UTMS[k] || ''; }).join('_');
 
-    /* payload no formato que o n8n espera: lead aninhado + UTMs separadas por coluna */
-    var payload = {
-      lead: { first_name: nome, email: email, phone: fone },
+    /* campos planos (cada um vira uma coluna em $json.body.<campo> no n8n).
+       Form urlencoded nao dispara preflight de CORS: o lead sempre chega. */
+    var campos = {
+      first_name: nome, email: email, phone: fone,
       utm_source: UTMS.utm_source || '',
       utm_medium: UTMS.utm_medium || '',
       utm_content: UTMS.utm_content || '',
@@ -111,12 +116,10 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
       location.href = CAPTURA.DESTINO + (CAPTURA.DESTINO.indexOf('?') > -1 ? '&' : '?') + p.toString();
     }
 
-    /* envia para o webhook do n8n em JSON (cada campo separado em $json.body.<campo>) */
-    fetch(CAPTURA.WEBHOOK, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(seguir, seguir);
+    /* envia ao webhook do n8n como form urlencoded (sem preflight de CORS) */
+    var form = new URLSearchParams();
+    Object.keys(campos).forEach(function (k) { form.append(k, campos[k] == null ? '' : campos[k]); });
+    fetch(CAPTURA.WEBHOOK, { method: 'POST', mode: 'no-cors', body: form }).then(seguir, seguir);
     setTimeout(seguir, 3500);
   });
 });

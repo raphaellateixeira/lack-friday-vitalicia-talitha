@@ -153,14 +153,13 @@ footer .cop{color:#55614f;font-size:.82rem}
   .hero{position:relative;min-height:calc(100vh - 44px);padding:0;display:block;overflow:hidden}
   .hero::before{display:none}
   .hero .wrap{position:static}
-  .hero .grid{display:block;position:relative;z-index:2;padding:178px 0 26px}
+  .hero .grid{display:block;position:relative;z-index:2;padding:200px 0 24px}
   .hero > .wrap > .grid > div:first-child{display:flex;flex-direction:column;align-items:flex-start}
   .hero .eti{background:rgba(5,10,4,.72);backdrop-filter:blur(4px)}
-  .hero .btn{font-size:.86rem;letter-spacing:0;padding:14px 16px;white-space:normal;line-height:1.18;align-self:stretch}
-  .hero-form{gap:8px;margin-top:16px}
-  .hero-form .in{padding:12px 13px}
-  .hero .data{margin:10px 0 8px}
-  .hero-foto{position:absolute;top:0;left:0;right:0;height:190px;z-index:0;margin:0;display:block}
+  .hero .btn{font-size:.88rem;letter-spacing:0;padding:15px 16px;white-space:normal;line-height:1.18;align-self:stretch}
+  .hero-form{gap:10px;margin-top:18px}
+  .hero .data{margin:12px 0 4px}
+  .hero-foto{position:absolute;top:0;left:0;right:0;height:194px;z-index:0;margin:0;display:block}
   .hero-foto::after{content:"";position:absolute;inset:0;z-index:1;
     background:linear-gradient(180deg,rgba(5,10,4,0) 40%,rgba(5,10,4,.55) 72%,rgba(5,10,4,.92) 90%,var(--preto) 100%)}
   .hero-foto img{width:100%;height:100%;max-height:none;object-fit:cover;object-position:center 6%;filter:none}
@@ -203,12 +202,6 @@ footer .cop{color:#55614f;font-size:.82rem}
         <span class="eti">Black Friday · Vitalícia</span>
         <h1>Black Friday <span class="verde">Vitalícia</span> da Pediatria Chinesa</h1>
         <p class="sub">Uma oferta vitalícia, com acesso a <b>todos os cursos de Pediatria Chinesa</b>, para sempre. Inscreva-se agora e receba a condição ao vivo.</p>
-        <div class="contador" id="contador" aria-label="Contagem regressiva">
-          <div class="bloco"><b data-d>00</b><span>dias</span></div>
-          <div class="bloco"><b data-h>00</b><span>horas</span></div>
-          <div class="bloco"><b data-m>00</b><span>min</span></div>
-          <div class="bloco"><b data-s>00</b><span>seg</span></div>
-        </div>
         <p class="data"><span class="cal">&#128197;</span> <b>12 de novembro de 2026</b> · às <b>20h</b> · ao vivo</p>
         <form class="formulario hero-form" id="inscricao" aria-label="Inscrição na Black Friday">
           <input class="in" name="nome" type="text" autocomplete="name" placeholder="Seu nome">
@@ -335,20 +328,6 @@ footer .cop{color:#55614f;font-size:.82rem}
 </footer>
 
 <script>
-/* CONTADOR regressivo para 12/11/2026 20:00 (horario de Brasilia, UTC-3) */
-(function(){
-  var alvo = new Date('2026-11-12T20:00:00-03:00').getTime();
-  var elD=document.querySelector('[data-d]'),elH=document.querySelector('[data-h]'),elM=document.querySelector('[data-m]'),elS=document.querySelector('[data-s]');
-  function z(n){return (n<10?'0':'')+n;}
-  function tick(){
-    var dif=alvo-Date.now();
-    if(dif<0){dif=0;}
-    var d=Math.floor(dif/86400000), h=Math.floor(dif%86400000/3600000), m=Math.floor(dif%3600000/60000), s=Math.floor(dif%60000/1000);
-    elD.textContent=z(d);elH.textContent=z(h);elM.textContent=z(m);elS.textContent=z(s);
-  }
-  tick(); setInterval(tick,1000);
-})();
-
 /* rolagem suave ate o formulario ao clicar nos botoes de ancora */
 (function(){
   document.querySelectorAll('a[href="#inscricao"]').forEach(function(a){

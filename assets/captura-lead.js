@@ -85,11 +85,10 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
     /* src = juncao das 6 UTMs (igual ao padrao da outra pagina), ou o src da URL se existir */
     var src = UTMS.src || UTM_KEYS.map(function (k) { return UTMS[k] || ''; }).join('_');
 
-    /* payload aninhado: lead.first_name/email/phone + utms soltas.
-       Enviado como JSON em text/plain + no-cors: nao dispara preflight de CORS,
-       entao o lead sempre chega, e o n8n le $json.body.lead.email, $json.body.lead.phone. */
+    /* payload PLANO: cada campo vira $json.body.<campo> no n8n (first_name, email, phone...).
+       Enviado como form urlencoded + no-cors: nao dispara preflight de CORS, o lead sempre chega. */
     var campos = {
-      lead: { first_name: nome, email: email, phone: fone },
+      first_name: nome, email: email, phone: fone,
       utm_source: UTMS.utm_source || '',
       utm_medium: UTMS.utm_medium || '',
       utm_content: UTMS.utm_content || '',
@@ -117,14 +116,12 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
       location.href = CAPTURA.DESTINO + (CAPTURA.DESTINO.indexOf('?') > -1 ? '&' : '?') + p.toString();
     }
 
-    /* envia ao webhook do n8n como JSON em text/plain (sem preflight de CORS),
-       igual ao padrao da skill que ja esta rodando na outra pagina */
-    fetch(CAPTURA.WEBHOOK, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-      body: JSON.stringify(campos)
-    }).then(seguir, seguir);
+    /* envia ao webhook do n8n como form urlencoded + no-cors (sem preflight de CORS).
+       Assim o n8n ja entrega o body como objeto com os campos soltos: $json.body.first_name,
+       $json.body.email, $json.body.phone, $json.body.utm_source ... */
+    var form = new URLSearchParams();
+    Object.keys(campos).forEach(function (k) { form.append(k, campos[k] == null ? '' : campos[k]); });
+    fetch(CAPTURA.WEBHOOK, { method: 'POST', mode: 'no-cors', body: form }).then(seguir, seguir);
     setTimeout(seguir, 3500);
   });
 });

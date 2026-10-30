@@ -24,19 +24,16 @@ Clone estático da página `metodotalithagranzotto.com/black-friday-vitalicia-da
 - Os 6 UTMs são lidos da URL, gravados em campos ocultos do form e enviados no lead.
 - O evento **Lead do Meta** é disparado no submit, com o mesmo `event_id` (deduplicação com a API de Conversões).
 
-## Formato do payload enviado ao n8n (JSON aninhado)
-Enviado como `text/plain` + `no-cors` (sem preflight de CORS), igual ao padrão da skill que já roda nas outras páginas.
+## Formato do payload enviado ao n8n (plano, urlencoded)
+Enviado como form urlencoded + `no-cors` (sem preflight de CORS). O n8n entrega o `body` já como objeto com os campos soltos.
 ```
-{
-  "lead": { "first_name": "...", "email": "...", "phone": "..." },
-  "utm_source": "...", "utm_medium": "...", "utm_content": "...",
-  "utm_term": "...", "utm_campaign": "...", "utm_campaign_id": "...",
-  "src": "source_medium_content_term_campaign_campaignid",
-  "full_url": "...", "query_string": "...", "submitted_at": "ISO",
-  "event_id": "...", "evento": "BlackFridayVitalicia"
-}
+body.first_name   body.email   body.phone
+body.utm_source   body.utm_medium   body.utm_content
+body.utm_term     body.utm_campaign body.utm_campaign_id
+body.src   body.full_url   body.query_string
+body.submitted_at   body.event_id   body.evento
 ```
-No n8n, mapear cada coluna por `$json.body.lead.first_name`, `$json.body.lead.email`, `$json.body.lead.phone`, `$json.body.utm_source`, etc.
+No n8n, mapear cada coluna por `$json.body.first_name`, `$json.body.email`, `$json.body.phone`, `$json.body.utm_source`, etc. (sem `lead.` na frente).
 
 ## Já configurado
 - Pixel Meta `789457605589881` (evento Lead no submit, mesmo event_id do payload).

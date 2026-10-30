@@ -121,7 +121,9 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
        $json.body.email, $json.body.phone, $json.body.utm_source ... */
     var form = new URLSearchParams();
     Object.keys(campos).forEach(function (k) { form.append(k, campos[k] == null ? '' : campos[k]); });
-    fetch(CAPTURA.WEBHOOK, { method: 'POST', mode: 'no-cors', body: form }).then(seguir, seguir);
-    setTimeout(seguir, 3500);
+    fetch(CAPTURA.WEBHOOK, { method: 'POST', mode: 'no-cors', body: form }).catch(function () {});
+    /* NAO redireciona na hora: da tempo do beacon do Lead (pixel) e do POST do webhook
+       sairem do navegador antes da navegacao, senao a Meta nunca recebe o Lead. */
+    setTimeout(seguir, 1200);
   });
 });

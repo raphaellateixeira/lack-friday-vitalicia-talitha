@@ -8,7 +8,7 @@ var CAPTURA = {
   WEBHOOK: "https://n8n.agenciaultima.com.br/webhook/f3dc5233-2170-40e6-8408-2eb4eed642d9",
   PIXEL: "789457605589881",  // Pixel Meta (navegador). O token da CAPI NUNCA fica aqui: fica no n8n (servidor).
   EVENTO: "BlackFridayVitalicia",
-  DESTINO: "obrigado"        // vai para obrigado.html (que leva ao grupo de WhatsApp)
+  DESTINO: "https://chat.whatsapp.com/FjCW4QFJ9CX8STVl6E2hqi"  // redireciona direto para o grupo
 };
 
 /* UTMs capturados, gravados no lead e nos campos ocultos do form */
@@ -104,6 +104,8 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
     var foi = false;
     function seguir() {
       if (foi) return; foi = true;
+      // link externo (grupo de WhatsApp): vai direto, sem anexar parametros
+      if (/^https?:\/\//.test(CAPTURA.DESTINO)) { location.href = CAPTURA.DESTINO; return; }
       var p = new URLSearchParams({ nome: nome, email: email, telefone: fone });
       UTM_KEYS.forEach(function (k) { if (UTMS[k]) p.append(k, UTMS[k]); });
       location.href = CAPTURA.DESTINO + (CAPTURA.DESTINO.indexOf('?') > -1 ? '&' : '?') + p.toString();

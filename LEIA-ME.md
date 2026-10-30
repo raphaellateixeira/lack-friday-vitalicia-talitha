@@ -24,7 +24,8 @@ Clone estático da página `metodotalithagranzotto.com/black-friday-vitalicia-da
 - Os 6 UTMs são lidos da URL, gravados em campos ocultos do form e enviados no lead.
 - O evento **Lead do Meta** é disparado no submit, com o mesmo `event_id` (deduplicação com a API de Conversões).
 
-## Formato do payload enviado ao n8n (JSON)
+## Formato do payload enviado ao n8n (JSON aninhado)
+Enviado como `text/plain` + `no-cors` (sem preflight de CORS), igual ao padrão da skill que já roda nas outras páginas.
 ```
 {
   "lead": { "first_name": "...", "email": "...", "phone": "..." },
@@ -35,7 +36,7 @@ Clone estático da página `metodotalithagranzotto.com/black-friday-vitalicia-da
   "event_id": "...", "evento": "BlackFridayVitalicia"
 }
 ```
-No n8n, mapear cada coluna por `$json.body.lead.first_name`, `$json.body.utm_source`, etc.
+No n8n, mapear cada coluna por `$json.body.lead.first_name`, `$json.body.lead.email`, `$json.body.lead.phone`, `$json.body.utm_source`, etc.
 
 ## Já configurado
 - Pixel Meta `789457605589881` (evento Lead no submit, mesmo event_id do payload).

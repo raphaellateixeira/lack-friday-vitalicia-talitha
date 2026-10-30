@@ -24,11 +24,26 @@ Clone estático da página `metodotalithagranzotto.com/black-friday-vitalicia-da
 - Os 6 UTMs são lidos da URL, gravados em campos ocultos do form e enviados no lead.
 - O evento **Lead do Meta** é disparado no submit, com o mesmo `event_id` (deduplicação com a API de Conversões).
 
-## PENDÊNCIAS antes de divulgar
-1. `assets/captura-lead.js` → `PIXEL`: colocar o ID do pixel Meta desta conta (vazio = não dispara o Lead).
-2. `obrigado.html` → trocar `LINK_DO_GRUPO_WHATSAPP` pelo link real do grupo (SendFlow/WhatsApp).
-3. Garantir no n8n que o webhook está publicado (produção) e grava na planilha.
-4. Conferir os textos das capas (estão embutidos nas imagens, vindos da página original).
+## Formato do payload enviado ao n8n (JSON)
+```
+{
+  "lead": { "first_name": "...", "email": "...", "phone": "..." },
+  "utm_source": "...", "utm_medium": "...", "utm_content": "...",
+  "utm_term": "...", "utm_campaign": "...", "utm_campaign_id": "...",
+  "src": "source_medium_content_term_campaign_campaignid",
+  "full_url": "...", "query_string": "...", "submitted_at": "ISO",
+  "event_id": "...", "evento": "BlackFridayVitalicia"
+}
+```
+No n8n, mapear cada coluna por `$json.body.lead.first_name`, `$json.body.utm_source`, etc.
+
+## Já configurado
+- Pixel Meta `789457605589881` (evento Lead no submit, mesmo event_id do payload).
+- Grupo de WhatsApp no `obrigado.html`.
+
+## PENDÊNCIAS
+1. Garantir no n8n que o webhook está em produção e gravando na planilha.
+2. Token da CAPI: configurar no n8n (servidor), nunca no site. Rotacionar o token exposto.
 
 ## Subir no GitHub
 O Raphael cria um repositório vazio em `raphaellateixeira/<nome-do-projeto>` (ex.: `black-friday-vitalicia-talitha`). Depois, nesta pasta:

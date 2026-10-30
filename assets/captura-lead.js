@@ -78,13 +78,25 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
 
     var eventId = 'lead-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8);
 
-    /* monta o lead: dados + evento + UTMs (sempre as 6 chaves) + extras */
-    var lead = {
-      nome: nome, email: email, telefone: fone,
-      evento: CAPTURA.EVENTO, pagina: location.href.split('?')[0], event_id: eventId
+    /* src = juncao das 6 UTMs (igual ao padrao da outra pagina), ou o src da URL se existir */
+    var src = UTMS.src || UTM_KEYS.map(function (k) { return UTMS[k] || ''; }).join('_');
+
+    /* payload no formato que o n8n espera: lead aninhado + UTMs separadas por coluna */
+    var payload = {
+      lead: { first_name: nome, email: email, phone: fone },
+      utm_source: UTMS.utm_source || '',
+      utm_medium: UTMS.utm_medium || '',
+      utm_content: UTMS.utm_content || '',
+      utm_term: UTMS.utm_term || '',
+      utm_campaign: UTMS.utm_campaign || '',
+      utm_campaign_id: UTMS.utm_campaign_id || '',
+      src: src,
+      full_url: location.href,
+      query_string: location.search,
+      submitted_at: new Date().toISOString(),
+      event_id: eventId,
+      evento: CAPTURA.EVENTO
     };
-    UTM_KEYS.forEach(function (k) { lead[k] = UTMS[k] || ''; });
-    EXTRA_KEYS.forEach(function (k) { if (UTMS[k]) lead[k] = UTMS[k]; });
 
     /* evento Lead do Meta no submit, com o mesmo event_id (deduplicacao) */
     if (window.fbq) fbq('track', 'Lead', { source: UTMS.utm_source || 'direto' }, { eventID: eventId });
@@ -97,14 +109,12 @@ document.querySelectorAll('form.formulario').forEach(function (form) {
       location.href = CAPTURA.DESTINO + (CAPTURA.DESTINO.indexOf('?') > -1 ? '&' : '?') + p.toString();
     }
 
-    /* envia para o webhook do n8n (salva na planilha).
-       text/plain + no-cors entrega o corpo sem preflight de CORS; o n8n le o body como JSON. */
+    /* envia para o webhook do n8n em JSON (cada campo separado em $json.body.<campo>) */
     fetch(CAPTURA.WEBHOOK, {
       method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify(lead)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
     }).then(seguir, seguir);
-    setTimeout(seguir, 3000);
+    setTimeout(seguir, 3500);
   });
 });
